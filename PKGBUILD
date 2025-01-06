@@ -31,7 +31,7 @@ build() {
   
   [[ -d build ]] || mkdir -p build
   cd build
-  CFLAGS+=" -fcommon -fno-strict-overflow" CXXFLAGS+=" -fpermissive" ../configure \
+  CFLAGS+=" -fcommon -fno-strict-overflow -Wno-stack-usage" CXXFLAGS+=" -fpermissive" ../configure \
     --prefix=/usr \
     --disable-nls \
     --disable-gprofng \
