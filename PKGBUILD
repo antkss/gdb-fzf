@@ -34,7 +34,13 @@ pkgver() {
 
 build() {
   cd "$srcdir/gdb"
-  
+  wget "https://raw.githubusercontent.com/filipkilibarda/gdb_fzf_patch/refs/heads/master/gdb.patch"
+  git config --global user.email "lmao@gmail.com"
+  git config --global user.name "lmaodark"
+	git init
+	git add .
+	git commit -m "initial commit"
+	git apply ./gdb.patch 
   [[ -d build ]] || mkdir -p build
   cd build
   CFLAGS+=" -fcommon -fno-strict-overflow -Wno-stack-usage" CXXFLAGS+=" -fpermissive" ../configure \
@@ -55,12 +61,7 @@ package_gdb-fzf() {
   provides=('gdb')
   conflicts=('gdb')
   backup=(etc/gdb/gdbinit)
-  cd "$srcdir/gdb"
-  wget "https://raw.githubusercontent.com/filipkilibarda/gdb_fzf_patch/refs/heads/master/gdb.patch"
-	git init
-	git add .
-	git commit -m "initial commit"
-	git apply ./gdb.patch
+
   cd "$srcdir/gdb/build"
   
   # install only gdb, otherwise it would install files already provided by binutils
