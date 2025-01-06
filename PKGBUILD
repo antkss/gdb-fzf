@@ -37,6 +37,7 @@ build() {
   wget "https://raw.githubusercontent.com/filipkilibarda/gdb_fzf_patch/refs/heads/master/gdb.patch"
   git config --global user.email "lmao@gmail.com"
   git config --global user.name "lmaodark"
+  git config --global init.defaultBranch main
 	git init
 	git add .
 	git commit -m "initial commit"
