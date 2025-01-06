@@ -42,7 +42,7 @@ build() {
     --with-guile=guile-3.0 \
     --with-system-gdbinit=/etc/gdb/gdbinit \
 	--disable-werror
-  make -j4
+  CFLAGS=-Wno-error make -j4
 }
 
 package_gdb-fzf() {
