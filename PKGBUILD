@@ -40,8 +40,9 @@ build() {
     --with-system-readline \
     --with-python=/usr/bin/python \
     --with-guile=guile-3.0 \
-    --with-system-gdbinit=/etc/gdb/gdbinit
-  make
+    --with-system-gdbinit=/etc/gdb/gdbinit \
+	--disable-werror
+  make -j4
 }
 
 package_gdb-fzf() {
