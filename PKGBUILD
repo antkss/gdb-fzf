@@ -40,7 +40,7 @@ build() {
   git config --global init.defaultBranch main
 	git init
 	git add .
-	git commit -m "initial commit"
+	git commit -m "initial commit" > /dev/null
 	git apply ./gdb.patch 
   [[ -d build ]] || mkdir -p build
   cd build
