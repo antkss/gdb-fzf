@@ -52,7 +52,6 @@ package_gdb-fzf() {
   backup=(etc/gdb/gdbinit)
   cd "$srcdir/gdb"
   wget "https://raw.githubusercontent.com/filipkilibarda/gdb_fzf_patch/refs/heads/master/gdb.patch"
-  git init
 	git init
 	git add .
 	git commit -m "initial commit"
