@@ -10,7 +10,7 @@ pkgdesc="The GNU Debugger from git"
 arch=('i686' 'x86_64')
 url="http://www.gnu.org/software/gdb/"
 license=('GPL3')
-makedepends=('git' 'source-highlight')
+makedepends=('git')
 provides=('gdb-common' 'gdb')
 conflicts=('gdb-common' 'gdb')
 options=('!libtool')
@@ -41,7 +41,6 @@ build() {
     --prefix=/usr \
     --disable-nls \
     --disable-gprofng \
-    --enable-source-highlight \
     --enable-tui \
     --with-system-readline \
     --with-guile=guile-3.0 \
