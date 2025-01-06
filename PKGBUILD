@@ -14,16 +14,22 @@ makedepends=('git' 'source-highlight')
 provides=('gdb-common' 'gdb')
 conflicts=('gdb-common' 'gdb')
 options=('!libtool')
-source=('gdb::git+https://sourceware.org/git/binutils-gdb.git')
-md5sums=('SKIP')
-
+# source=('gdb::git+https://sourceware.org/git/binutils-gdb.git')
+# md5sums=('SKIP')
+prepare() {
+	cd $srcdir
+	wget "https://sourceware.org/pub/gdb/releases/gdb-15.2.tar.xz"
+	tar -xf gdb-15.2.tar.xz
+	mv gdb-15.2 gdb
+}
 pkgver() {
   cd "$srcdir/gdb"
+  echo "15.2"
 
-  _ver="$(cat gdb/version.in | cut -dD -f1)"
-  _rev="$(git rev-list --count HEAD)"
-  _hash="$(git rev-parse --short HEAD)"
-  printf '%s' "${_ver}r${_rev}.${_hash}"
+  # _ver="$(cat gdb/version.in | cut -dD -f1)"
+  # _rev="$(git rev-list --count HEAD)"
+  # _hash="$(git rev-parse --short HEAD)"
+  # printf '%s' "${_ver}r${_rev}.${_hash}"
 }
 
 build() {
