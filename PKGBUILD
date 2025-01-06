@@ -44,7 +44,6 @@ build() {
     --enable-source-highlight \
     --enable-tui \
     --with-system-readline \
-    --with-python=/usr/bin/python \
     --with-guile=guile-3.0 \
     --with-system-gdbinit=/etc/gdb/gdbinit \
 	--disable-werror
